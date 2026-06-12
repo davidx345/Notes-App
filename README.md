@@ -25,6 +25,28 @@ A minimal, responsive notes app built with React and Tailwind CSS. Supports dark
 - Persistent storage — notes survive page refresh
 - Fully responsive across mobile and desktop
 
+## Testing
+
+The app includes a small Vitest + React Testing Library suite that covers the key user flows:
+
+- creating a note from the form
+- editing and deleting an existing note
+- keeping notes in `localStorage` after a refresh
+- switching between dark and light mode
+
+Run the tests with:
+
+```bash
+npm test
+```
+
+## Implementation Notes
+
+- `App.jsx` owns the note state, edit mode, and localStorage persistence.
+- `NoteForm.jsx` is a controlled form so the parent can reuse the same inputs for create and update.
+- `NoteList.jsx` and `NoteCard.jsx` separate rendering concerns from the app state logic.
+- The main buttons now include accessible labels so the UI is easier to test and use with assistive tools.
+
 ---
 
 ## Project Structure

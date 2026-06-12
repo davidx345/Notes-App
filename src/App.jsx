@@ -9,15 +9,18 @@ const App = () => {
   const [theme, setTheme] = useState("dark");
   const [editId, setEditId] = useState(null);
 
+  // Load saved notes once so the app keeps the collection after a refresh.
   const [notes, setNotes] = useState(() => {
     const saved = localStorage.getItem("my-notes");
     return saved ? JSON.parse(saved) : [];
   });
 
+  // Persist every note change back to localStorage.
   useEffect(() => {
     localStorage.setItem("my-notes", JSON.stringify(notes));
   }, [notes]);
 
+  // The submit button handles both create and update flows.
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!title.trim() || !content.trim()) return;
@@ -43,6 +46,7 @@ const App = () => {
     setContent("");
   };
 
+  // Load the selected note into the form and move the user back to the top.
   const handleEdit = (note) => {
     setEditId(note.id);
     setTitle(note.title);
@@ -50,6 +54,7 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Delete a note and exit edit mode if that note is currently selected.
   const deleteNote = (id) => {
     if (editId === id) setEditId(null);
     setNotes(notes.filter((note) => note.id !== id));

@@ -1,6 +1,7 @@
 import React from "react";
 import NoteCard from "./NoteCard";
 
+// The list either shows an empty state or maps each note to a reusable card.
 const NoteList = ({ notes, theme, onDelete, onEdit }) => (
   <section
     className={`lg:w-[60%] p-8 md:p-12 lg:p-16 ${theme === "dark" ? "bg-[#0f0f0f]" : "bg-zinc-100/50"}`}

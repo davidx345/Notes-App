@@ -1,5 +1,6 @@
 import React from "react";
 
+// The header keeps the brand and the theme switch visible at all times.
 const Header = ({ theme, toggleTheme }) => (
   <header
     className={`px-8 py-4 flex justify-between items-center border-b ${theme === "dark" ? "border-zinc-800 bg-[#0a0a0a]" : "border-zinc-200 bg-white"}`}
@@ -12,6 +13,7 @@ const Header = ({ theme, toggleTheme }) => (
     </div>
     <button
       onClick={toggleTheme}
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
       className={`p-2 rounded-full transition-all ${theme === "dark" ? "bg-zinc-900 text-yellow-400 hover:bg-zinc-800" : "bg-zinc-200 text-indigo-600 hover:bg-zinc-300"}`}
     >
       {theme === "dark" ? "☀️" : "🌙"}

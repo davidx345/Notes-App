@@ -1,5 +1,6 @@
 import React from "react";
 
+// This form stays controlled so App can manage create and edit state in one place.
 const NoteForm = ({
   theme,
   title,
@@ -23,6 +24,7 @@ const NoteForm = ({
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           type="text"
+          aria-label="Note title"
           placeholder="Title"
           className={`w-full border rounded-xl px-6 py-4 outline-none transition-all text-lg 
             ${
@@ -34,6 +36,7 @@ const NoteForm = ({
         <textarea
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          aria-label="Note content"
           placeholder="Content"
           className={`w-full h-40 border rounded-xl px-6 py-4 outline-none resize-none transition-all 
             ${

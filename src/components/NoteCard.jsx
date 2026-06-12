@@ -1,5 +1,6 @@
 import React from "react";
 
+// Each card exposes edit and delete actions for one saved note.
 const NoteCard = ({ note, theme, onDelete, onEdit }) => (
   <div
     className={`group relative border p-6 rounded-2xl transition-all duration-300 
@@ -8,12 +9,14 @@ const NoteCard = ({ note, theme, onDelete, onEdit }) => (
     <div className="absolute top-4 right-4 flex gap-3">
       <button
         onClick={() => onEdit(note)}
+        aria-label={`Edit note ${note.title}`}
         className="text-zinc-500 hover:text-indigo-500 transition-colors text-[10px] font-mono uppercase tracking-widest"
       >
         Edit
       </button>
       <button
         onClick={() => onDelete(note.id)}
+        aria-label={`Delete note ${note.title}`}
         className="text-zinc-500 hover:text-red-500 transition-colors text-2xl leading-none"
       >
         ×
